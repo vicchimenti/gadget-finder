@@ -35,7 +35,7 @@ $(function () {
             $(function () {
                 let parseItemsToDisplay = function() {
                     // assign array of currently visible content items
-                    visibleItems = $('.newsItemWrapper').not('.hideByText, .hideByType');
+                    visibleItems = $('.knowledgeBaseItemWrapper').not('.hideByDropdownCategories');
                     // check to see if array is empty
                     if (visibleItems.length == 0) {
                         // when array is empty show the results message
@@ -54,14 +54,14 @@ $(function () {
             //   ***   Keyword Search   ***   //
             $(function () {
                 // scan the keyword each character the user inputs
-                $('#keystroke_filter').on('keyup', function () {
+                $('#id_search').on('keyup', function () {
                     // Assign Search Key
                     let keyword = $(this).val().toLowerCase();
                     // filter the items for the input key
                     $(function () {
-                        $('.newsItemWrapper').filter(function () {
+                        $('.knowledgeBaseItem').filter(function () {
                             // when the search key is not present in the item then hide the item
-                            $(this).toggleClass('hideByText', !($(this).text().toLowerCase().indexOf(keyword) > -1));
+                            $(this).toggleClass('hideByDropdownCategories', !($(this).text().toLowerCase().indexOf(keyword) > -1));
                         });
                     });
                     // parse out unselected content items and limit display to user selected items
