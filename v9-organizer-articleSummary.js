@@ -1,13 +1,13 @@
   /***
 *     @author Victor Chimenti, MSCS-SE '20
-*     @file article-content-type.js
+*     @file v9-organizer-articleSummary.js
 *
 *     This new content type is being adapted from the knowledge base
 *     content type used by IT Services and is intended to provide a
 *     searchable, sortable group of articles that can be exported to and used
 *     by any department.
 *
-*     This specific project is intended for the Career Engagement Dept,
+*     This specific project is intended for the CDLI Gadget Finder,
 *     although this content type should easily be exportable to other teams.
 *
 *     This content type will work in conjunction with the Organizer and each item
@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 2.6
+*     @version 3.0
 */
 
 try {
