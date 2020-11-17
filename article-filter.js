@@ -4,10 +4,10 @@
 *   @file article-filter.js
 *
 *   jQuery
-*   This script searches the Career Engagement Article content items for matches to the
-*   user selected search parameters in the filter field checkboxes
+*   This script searches the Gadget Finder Article content items for matches to the
+*   user selected search parameters in the filter field dropdown menu
 *
-*   @version 2.3
+*   @version 3.0
 */
 
 
@@ -74,32 +74,60 @@ $(function () {
 						
 
             //   ***   Topic Filter   ***   //
+            // $(function () {
+            //     // Execute When the Multi-Select Checkbox Selector for Article Topics Changes
+            //     $('#SelectBox-ByType').change(function () {
+            //         let typeKeys = [];
+            //         typeKeys[0] = -1;
+            //         // assign an array of keys to hold the value from each check box selected
+            //         $('input[name=SelectBox-ByType]:checked').each(function (item) {
+            //             typeKeys[item] = $(this).val();
+            //         });
+            //         // If Key array has at least one valid value then Compare to Each Content Item
+            //         if (typeKeys[0] != -1) {
+            //             $('.topics').filter(function (i, e) {
+            //                 let typeValue = $(this).text();
+            //                 // set state to hidden for all items
+            //                 $(this).parents('.newsItemWrapper').addClass('hideByType');
+            //                 // Check to see if any Key is included in the current Value
+            //                 for (let index = 0; index < typeKeys.length; index++) {
+            //                     if (typeValue.includes(typeKeys[index])) {
+            //                         // make current item visible when any key is present in the value string
+            //                         $(this).parents('.newsItemWrapper').removeClass('hideByType');
+            //                     }
+            //                 }
+            //             });
+            //             // Or Else the Key array is Null so Reset all Content Items to Visible
+            //         } else {
+            //             $('.newsItemWrapper').removeClass('hideByType');
+            //         }
+            //         // parse out unselected content items and limit display to user selected items
+            //         parseItems.process();
+            //     });
+            // });
+
+
+
+            //   ***   Category Filter   ***   //
             $(function () {
-                // Execute When the Multi-Select Checkbox Selector for Article Topics Changes
-                $('#SelectBox-ByType').change(function () {
-                    let typeKeys = [];
-                    typeKeys[0] = -1;
-                    // assign an array of keys to hold the value from each check box selected
-                    $('input[name=SelectBox-ByType]:checked').each(function (item) {
-                        typeKeys[item] = $(this).val();
-                    });
-                    // If Key array has at least one valid value then Compare to Each Content Item
-                    if (typeKeys[0] != -1) {
-                        $('.topics').filter(function (i, e) {
-                            let typeValue = $(this).text();
-                            // set state to hidden for all items
-                            $(this).parents('.newsItemWrapper').addClass('hideByType');
-                            // Check to see if any Key is included in the current Value
-                            for (let index = 0; index < typeKeys.length; index++) {
-                                if (typeValue.includes(typeKeys[index])) {
-                                    // make current item visible when any key is present in the value string
-                                    $(this).parents('.newsItemWrapper').removeClass('hideByType');
-                                }
+                // When the Dropdown Menu Selector Course Types Change - Execute change function
+                $('#selectboxCategories').change(function () {
+                    // Assign Search Key
+                    let typeKey = $(this).val();
+                    // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
+                    if (typeKey) {
+                        $('li.tag').filter(function (i, e) {
+                            var typeValue = $(this).text();
+                            // Check to see if the Key and Value are a Match
+                            if (typeValue.match(typeKey)) {
+                                $(this).parents('.knowledgeBaseItemWrapper').removeClass('hideByDropdownCategories');
+                            } else {
+                                $(this).parents('.knowledgeBaseItemWrapper').addClass('hideByDropdownCategories');
                             }
                         });
-                        // Or Else the Key array is Null so Reset all Content Items to Visible
+                        // Else the Search Key is Null so Reset all Content Items to Visible
                     } else {
-                        $('.newsItemWrapper').removeClass('hideByType');
+                        $('.knowledgeBaseItemWrapper').removeClass('hideByDropdownCategories');
                     }
                     // parse out unselected content items and limit display to user selected items
                     parseItems.process();
