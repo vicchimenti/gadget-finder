@@ -29,7 +29,7 @@ try {
   var articleSummary = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Summary' output='normal' display_field='value' />");
   var articleFullBody = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Full Article' output='normal' display_field='value' />");
   // var fieldSectionLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Section Link' output='linkurl' />");
-  // var fullTextLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Name' modifiers='striptags,htmlentities' />");
+  var fullTextLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Name' modifiers='striptags,htmlentities' />");
   var titleLink = "";
   var lastModified = '<div class="lastModified" style="display:inline-block">Last modified: <t4 type="meta" meta="last_modified" format="MMMM d, yyyy" /></div>';
   // var fieldKeywords = content.get("Searchable Keyword");
@@ -53,22 +53,24 @@ try {
   }
 
     /* parse the list of categories, add <li> tags*/
-  if (articleTypes != "") {
-    var arrayOfTypes = articleTypes.split(',');
-    for (let i = 0; i < arrayOfTypes.length; i++) {
-      listOfTypes += '<li class="articleType">' + arrayOfTypes[i] + '</li>';
-    }
-    listOfTypes = '<ul>' + listOfTypes + '</ul>';
-  }
+  // if (articleTypes != "") {
+  //   var arrayOfTypes = articleTypes.split(',');
+  //   for (let i = 0; i < arrayOfTypes.length; i++) {
+  //     listOfTypes += '<li class="articleType">' + arrayOfTypes[i] + '</li>';
+  //   }
+  //   listOfTypes = '<ul>' + listOfTypes + '</ul>';
+  // }
 
   /* determine which link, if any, goes in the title */
-  if (fieldSectionLink == "" && articleFullBody == "") {
+  if (articleFullBody == "") {
     titleLink = "<h4>" + articleTitle + "</h4>";
-  } else if (fieldSectionLink == "") {
-    titleLink = '<h4><a href="' + fullTextLink + '">' + articleTitle + '</a></h4>';
   } else {
-    titleLink = '<h4><a href="' + fieldSectionLink + '">' + articleTitle + '</a></h4>';
+    titleLink = '<h4><a href="' + fullTextLink + '">' + articleTitle + '</a></h4>';
   }
+
+  // else if (fieldSectionLink == "") {
+  //   titleLink = '<h4><a href="' + fullTextLink + '">' + articleTitle + '</a></h4>';
+  //      titleLink = '<h4><a href="' + fieldSectionLink + '">' + articleTitle + '</a></h4>';
 
   
 
@@ -78,24 +80,24 @@ try {
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
 
   document.write('<div class="summaryWrapper">');
-  document.write('<figure class="programImageWrapper"><img src="' + programImageMedia + '" alt="' + altImage + '" class="programImage" /><figcaption class="programImageCaption">' + altImage + '</figcaption></figure>');
+  document.write('<figure class="programImageWrapper"><img src="' + programImageMedia + '" class="programImage" /></figure>');
   document.write('<div class="summary">' + articleSummary + '</div>')
 
-  if (author != "") {
-    document.write('<div class="author">');
-    document.write('<div class="articleDetails articleAuthor"><h5>By: </h5><div class="articleAuthor"><h5>' + author + '</h5></div></div>');
-    document.write('</div>');
-  } else {
-    document.write('<div class="author articleDetails articleAuthor" style="display: none";><h5>No Author Provided</h5></div>');
-  }
+  // if (author != "") {
+  //   document.write('<div class="author">');
+  //   document.write('<div class="articleDetails articleAuthor"><h5>By: </h5><div class="articleAuthor"><h5>' + author + '</h5></div></div>');
+  //   document.write('</div>');
+  // } else {
+  //   document.write('<div class="author articleDetails articleAuthor" style="display: none";><h5>No Author Provided</h5></div>');
+  // }
   
-  if (publishDate != "") {
-    document.write('<div class="publishDate">');
-    document.write('<div class="articleDetails articleDate"><h5>Published: </h5><div class="articleDate"><h5>' + publishDate + '</h5></div></div>');
-    document.write('</div>');
-  } else {
-    document.write('<div class="publishDate articleDetails articleDate" style="display: none";><h5>No Date Provided</h5></div>');
-  }
+  // if (publishDate != "") {
+  //   document.write('<div class="publishDate">');
+  //   document.write('<div class="articleDetails articleDate"><h5>Published: </h5><div class="articleDate"><h5>' + publishDate + '</h5></div></div>');
+  //   document.write('</div>');
+  // } else {
+  //   document.write('<div class="publishDate articleDetails articleDate" style="display: none";><h5>No Date Provided</h5></div>');
+  // }
 
   document.write(listOfTags);
 
@@ -103,18 +105,18 @@ try {
   // document.write(listOfTypes);
 
   /* -- Write Program Level 1 Details --*/
-  if (listOfTypes != "") {
-    document.write('<div class="levelOne">');
-    document.write('<div class="articleDetails articleTypes"><h5>Categories: </h5><div class="articleTypes"><span>' + listOfTypes + '</span></div></div>');
-    document.write('</div>');
-  } else {
-    document.write('<div class="levelOne articleDetails articleType" style="display: none";><h5>No Category Provided</h5></div>');
-  }
+  // if (listOfTypes != "") {
+  //   document.write('<div class="levelOne">');
+  //   document.write('<div class="articleDetails articleTypes"><h5>Categories: </h5><div class="articleTypes"><span>' + listOfTypes + '</span></div></div>');
+  //   document.write('</div>');
+  // } else {
+  //   document.write('<div class="levelOne articleDetails articleType" style="display: none";><h5>No Category Provided</h5></div>');
+  // }
 
 
 
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, lastModified));
-  document.write('<div class="keywords" style="display:none;" aria-hidden="true">' + fieldKeywords + '</div>');
+  // document.write('<div class="keywords" style="display:none;" aria-hidden="true">' + fieldKeywords + '</div>');
   document.write('</div>'); // close summaryWrapper
 
   document.write(endingHTML);
