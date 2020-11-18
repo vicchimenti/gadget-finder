@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 3.0
+*     @version 3.1
 */
 
 try {
@@ -79,7 +79,7 @@ try {
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
 
-  document.write('<div class="newsImage"><figure class="articleImageWrapper"><img src="' + articleMedia + '" class="articleImage" /></figure>');
+  document.write('<div class="newsImage"><figure class="articleImageWrapper"><img src="' + articleMedia + '" class="articleImage" /></figure></div>');
 
   document.write('<div class="articleSummary">');
   document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
