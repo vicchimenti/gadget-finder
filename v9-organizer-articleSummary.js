@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 3.8
+*     @version 3.9
 */
 
 try {
@@ -71,13 +71,15 @@ try {
   // }
 
   /* determine which link, if any, goes in the title */
-  if (articleFullBody == "" && externalLink == "") {
-    titleLink = "<h3>" + articleTitle + "</h3>";
-  } else if (externalLink == "") {
-      titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
+  if (articleFullBody == "") {
+      titleLink = "<h3>" + articleTitle + "</h3>";
   } else {
-      titleLink = '<h3><a href="' + externalLink + '">' + articleTitle + '</a></h3>';
+      titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
   }
+  
+  // else if (externalLink == "") {
+  //     titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
+  // } 
 
       // titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
 
