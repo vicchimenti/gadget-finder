@@ -90,7 +90,7 @@ try {
   if (externalLink == "") {
       thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
   } else {
-      thumbNailString = '<div class="newsImage"><a href="' + externalLink + '"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></a></div>';
+      thumbNailString = '<div class="newsImage"><a href="' + externalLink + '" target="_blank"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></a></div>';
   }
 
 {/* <p><a href="https://www.w3schools.com">
