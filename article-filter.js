@@ -117,20 +117,20 @@ $(function () {
                     // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
                     if (typeKey) {
                         // default to display all items
-                        $('.knowledgeBaseItemWrapper').removeClass('hideByDropdownCategories');
+                        // $('.newsItemWrapper').removeClass('hideByDropdownCategories');
                         // search tags in each item
                         $('li.tag').filter(function (i, e) {
                             var typeValue = $(this).text();
                             // Check to see if the Key and Value are a Match
                             if (typeValue.match(typeKey)) {
-                                $(this).parents('.knowledgeBaseItemWrapper').removeClass('hideByDropdownCategories');
+                                $(this).parents('.newsItemWrapper').removeClass('hideByDropdownCategories');
                             } else {
-                                $(this).parents('.knowledgeBaseItemWrapper').addClass('hideByDropdownCategories');
+                                $(this).parents('.newsItemWrapper').addClass('hideByDropdownCategories');
                             }
                         });
                         // Else the Search Key is Null so Reset all Content Items to Visible
                     } else {
-                        $('.knowledgeBaseItemWrapper').removeClass('hideByDropdownCategories');
+                        $('.newsItemWrapper').removeClass('hideByDropdownCategories');
                     }
                     // parse out unselected content items and limit display to user selected items
                     parseItems.process();
