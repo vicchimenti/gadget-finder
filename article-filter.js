@@ -7,7 +7,7 @@
 *   This script searches the Gadget Finder Article content items for matches to the
 *   user selected search parameters in the filter field dropdown menu
 *
-*   @version 3.0
+*   @version 3.3
 */
 
 
