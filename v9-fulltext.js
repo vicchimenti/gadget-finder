@@ -14,7 +14,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 1.0
+*     @version 1.4
 */
 
 try {
@@ -28,21 +28,8 @@ try {
   var fieldTags = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
   var anchorTag = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='meta' meta='html_anchor' />"); 
   var lastModified = '<div class="lastModified" style="display:inline-block"><p>Last modified: <t4 type="meta" meta="last_modified" format="MMMM d, yyyy" /></p></div>'; 
-//   var titleLink = "<h2>" + articleTitle + "</h2>";
   var listOfTags = "";
   var featureImageString = "";
-
-
-  <t4 type="meta" meta="html_anchor" />
-
-  /**
-   * Fields reserved for full text layout:
-   * 
-   *    var thumbnailImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Thumbnail image' output='normal' formatter='path/*' />");
-   *    var altThumbnailImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Alt Image' output='normal' modifiers='striptags,htmlentities' />");
-   *    var articleSummary = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Summary' output='normal' display_field='value' />");
-   *
-   */
 
 
   /* -- Prepare all the things -- */
@@ -60,14 +47,6 @@ try {
   }
 
 
-  /* determine which link, if any, goes in the title */
-//   if (articleFullBody == "") {
-//       titleLink = "<h3>" + articleTitle + "</h3>";
-//   } else {
-//       titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
-//   }
-
-
   /* determine which link, if any, goes on the image */
   if (externalLink == "") {
       featureImageString = '<div class="newsArticleFeatureImage"><img src="' + featureImage + '" class="articleImage" alt="' + altFeatureImage + '" /></div>';
@@ -76,37 +55,16 @@ try {
   }
   
 
-
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, anchorTag));
-
-
-//   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
-//   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, featureImageString));
-
-
-//   document.write('<div class="articleSummary">');
-//   document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
-
-//   document.write('<article class="newsArticle">');
-
-
   document.write('<div class="newsArticleHeader"><h2 id="pageTitle">' + articleTitle + '</h2></div>');
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, featureImageString));
-
   document.write('<div class="articleText standardContent">' + articleFullBody + '</div>'); 
   document.write(listOfTags);
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, lastModified));
-
-
-//   document.write('</div>'); // close articleSummary
-
-
   document.write(endingHTML);
 
-
-  
 
 } catch (err) {
   document.write(err.message);
