@@ -28,8 +28,8 @@ try {
   var fieldTags = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
   var anchorTag = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='meta' meta='html_anchor' />"); 
   var lastModified = '<div class="lastModified" style="display:inline-block"><p>Last modified: <t4 type="meta" meta="last_modified" format="MMMM d, yyyy" /></p></div>'; 
+  var titleLink = "<h2>" + articleTitle + "</h2>";
   var listOfTags = "";
-  var titleLink = "";
   var thumbNailString = "";
 
 
@@ -46,8 +46,8 @@ try {
 
 
   /* -- Prepare all the things -- */
-  var beginningHTML = '<div class="newsArticleWrapper contentItem" id="id<t4 type=\'meta\' meta=\'content_id\' data-position-default="ZoneA" data-position-selected="ZoneA"/>"><div class="newsItem standardContent">';
-  var endingHTML = '</div></div>';
+  var beginningHTML = '<div class="newsArticleWrapper contentItem" id="id<t4 type=\'meta\' meta=\'content_id\' data-position-default="ZoneA" data-position-selected="ZoneA"/>">';
+  var endingHTML = '</div>';
 
 
   /* parse the list of tags, add <li> tags*/
@@ -61,11 +61,11 @@ try {
 
 
   /* determine which link, if any, goes in the title */
-  if (articleFullBody == "") {
-      titleLink = "<h3>" + articleTitle + "</h3>";
-  } else {
-      titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
-  }
+//   if (articleFullBody == "") {
+//       titleLink = "<h3>" + articleTitle + "</h3>";
+//   } else {
+//       titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
+//   }
 
 
   /* determine which link, if any, goes on the image */
@@ -79,10 +79,15 @@ try {
 
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
+  document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, anchorTag));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, thumbNailString));
-  document.write('<div class="articleSummary">');
-  document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
+
+
+//   document.write('<div class="articleSummary">');
+//   document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
+
+
   document.write(listOfTags);
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, lastModified));
   document.write('</div>'); // close articleSummary
