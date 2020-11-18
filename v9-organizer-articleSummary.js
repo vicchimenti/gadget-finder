@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 4.0
+*     @version 4.1
 */
 
 try {
@@ -88,14 +88,14 @@ try {
 
         /* determine which link, if any, goes on the image */
   if (externalLink == "") {
-    thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
-  } else {
       thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
+  } else {
+      thumbNailString = '<div class="newsImage"><a href="' + externalLink + '"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></a></div>';
   }
 
 {/* <p><a href="https://www.w3schools.com">
 <img src="w3html.gif" alt="W3Schools.com" width="100" height="132">
-</a></p> */}
+</a></p>  */}
 
 
   
