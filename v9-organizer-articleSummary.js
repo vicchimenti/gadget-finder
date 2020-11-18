@@ -15,28 +15,35 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 3.7
+*     @version 3.8
 */
 
 try {
-  /* -- Store all the things -- */
+  /* -- Assign all the things -- */
   var articleTitle = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Article Title' output='normal' display_field='value' />");
+ 
   // var articleTypes = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
   // var publishDate = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Publish Date' output='normal' display_field='value' />");
   // var author = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Author' output='normal' display_field='value' />");
+ 
   var thumbnailImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Thumbnail image' output='normal' formatter='path/*' />");
   var altThumbnailImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Alt Image' output='normal' modifiers='striptags,htmlentities' />");
-  var featureImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Thumbnail image' output='normal' formatter='path/*' />");
-  var altFeatureImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Alt Feature Image' output='normal' modifiers='striptags,htmlentities' />");
   var articleSummary = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Summary' output='normal' display_field='value' />");
   var articleFullBody = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Full Article' output='normal' display_field='value' />");
-  var fieldLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='External Link' output='linkurl' />");
+
+  // var featureImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Thumbnail image' output='normal' formatter='path/*' />");
+  // var altFeatureImage = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Alt Feature Image' output='normal' modifiers='striptags,htmlentities' />");
+
+  var externalLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='External Link' output='linkurl' />");
   var fullTextLink = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Name' output='fulltext' use-element='true' filename-element='Name' modifiers='striptags,htmlentities' />");
   var titleLink = "";
   var lastModified = '<div class="lastModified" style="display:inline-block">Last modified: <t4 type="meta" meta="last_modified" format="MMMM d, yyyy" /></div>';
+ 
   // var fieldKeywords = content.get("Searchable Keyword");
+ 
   var fieldTags = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
   var listOfTags = "";
+ 
   // var listOfTypes = "";
 
 
@@ -64,15 +71,20 @@ try {
   // }
 
   /* determine which link, if any, goes in the title */
-  if (articleFullBody == "") {
+  if (articleFullBody == "" && externalLink == "") {
     titleLink = "<h3>" + articleTitle + "</h3>";
+  } else if (externalLink == "") {
+      titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
   } else {
-    titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
+      titleLink = '<h3><a href="' + externalLink + '">' + articleTitle + '</a></h3>';
   }
 
-  // else if (fieldSectionLink == "") {
-  //   titleLink = '<h4><a href="' + fullTextLink + '">' + articleTitle + '</a></h4>';
-  //      titleLink = '<h4><a href="' + fieldSectionLink + '">' + articleTitle + '</a></h4>';
+      // titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
+
+
+
+
+
 
   
 
