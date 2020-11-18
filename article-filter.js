@@ -59,7 +59,7 @@ $(function () {
                     let keyword = $(this).val().toLowerCase();
                     // filter the items for the input key
                     $(function () {
-                        $('.knowledgeBaseItem').filter(function () {
+                        $('.newsItem').filter(function () {
                             // when the search key is not present in the item then hide the item
                             $(this).toggleClass('hideByDropdownCategories', !($(this).text().toLowerCase().indexOf(keyword) > -1));
                         });
