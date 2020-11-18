@@ -28,7 +28,7 @@ try {
   var fieldTags = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
   var anchorTag = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='meta' meta='html_anchor' />"); 
   var lastModified = '<div class="lastModified" style="display:inline-block"><p>Last modified: <t4 type="meta" meta="last_modified" format="MMMM d, yyyy" /></p></div>'; 
-  var titleLink = "<h2>" + articleTitle + "</h2>";
+//   var titleLink = "<h2>" + articleTitle + "</h2>";
   var listOfTags = "";
 //   var thumbNailString = "";
 
@@ -80,7 +80,7 @@ try {
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, anchorTag));
-  document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
+//   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
 //   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, thumbNailString));
 
 
@@ -88,6 +88,9 @@ try {
 //   document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
 
 
+  document.write('<div class="newsArticleHeader"><h2 id="pageTitle">' + articleTitle + '</h2></div>'); 
+
+  document.write('<div class="articleText">' + articleFullBody + '</div>'); 
   document.write(listOfTags);
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, lastModified));
   document.write('</div>'); // close articleSummary
