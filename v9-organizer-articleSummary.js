@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 3.4
+*     @version 3.5
 */
 
 try {
@@ -39,7 +39,7 @@ try {
 
 
   /* -- Prepare all the things -- */
-  var beginningHTML = '<div class="knowledgeBaseItemWrapper" id="id<t4 type=\'meta\' meta=\'content_id\' />"><div class="newsItem standardContent">';
+  var beginningHTML = '<div class="newsItemWrapper" id="id<t4 type=\'meta\' meta=\'content_id\' />"><div class="newsItem standardContent">';
   var endingHTML = '</div></div>';
 
 
