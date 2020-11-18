@@ -79,6 +79,7 @@ $(function () {
                 $('#selectboxCategories').change(function () {
                     // Assign Search Key
                     let typeKey = $(this).val();
+                    console.log("typeKey: " + typeKey);
                     // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
                     if (typeKey) {
                         // default to display all items
@@ -86,6 +87,8 @@ $(function () {
                         // search tags in each item
                         $('li.tag').filter(function (i, e) {
                             var typeValue = $(this).text();
+                            console.log("typeValue: " + typeValue);
+
                             // Check to see if the Key and Value are a Match
                             if (typeValue.match(typeKey)) {
                                 $(this).parents('.newsItemWrapper').removeClass('hideByDropdownCategories');
