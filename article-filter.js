@@ -72,7 +72,6 @@ $(function () {
 
 
 
-
             //   ***   Category Filter   ***   //
             $(function () {
                 // When the Dropdown Menu Selector Course Types Change - Execute change function
@@ -99,7 +98,6 @@ $(function () {
                     parseItems.process();
                 });
             });
-
 
 
 
