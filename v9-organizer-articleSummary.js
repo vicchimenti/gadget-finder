@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 4.4
+*     @version 4.5
 */
 
 try {
@@ -54,7 +54,7 @@ try {
     for (let i = 0; i < arrayOfTags.length; i++) {
       listOfTags += '<li class="tag">' + arrayOfTags[i] + '</li>';
     }
-    listOfTags = '<div class="knowledgeBaseItem"><ul>' + listOfTags + '</ul></div>';
+    listOfTags = '<div class="knowledgeBaseItem"><ul class="categories">' + listOfTags + '</ul></div>';
   }
 
 
