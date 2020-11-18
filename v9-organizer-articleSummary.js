@@ -15,7 +15,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 3.9
+*     @version 4.0
 */
 
 try {
@@ -43,6 +43,7 @@ try {
  
   var fieldTags = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
   var listOfTags = "";
+  var thumbNailString = "";
  
   // var listOfTypes = "";
 
@@ -85,7 +86,16 @@ try {
 
 
 
+        /* determine which link, if any, goes on the image */
+  if (externalLink == "") {
+    thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
+  } else {
+      thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
+  }
 
+{/* <p><a href="https://www.w3schools.com">
+<img src="w3html.gif" alt="W3Schools.com" width="100" height="132">
+</a></p> */}
 
 
   
@@ -94,8 +104,11 @@ try {
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
+  document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, thumbNailString));
 
-  document.write('<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>');
+  
+
+  {/* document.write('<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>'); */}
   document.write('<div class="articleSummary">');
   document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
 
