@@ -73,19 +73,26 @@
             format="<div class=&quot;newsArticleFeatureImage&quot;>$value</div>" formatter="image/*" /> -->
 
 
-            <t4 type="content" name="External Link" output="selective-output" modifiers="htmlentities" format="<a href=&quot;$value&quot; target=&quot;_blank&quot;>" />
+            <!-- <t4 type="content" name="External Link" output="selective-output" modifiers="htmlentities" format="<a href=&quot;$value&quot; target=&quot;_blank&quot;>" /> -->
 
-            <div class="newsImage"><a href="' + externalLink + '" target="_blank"><img src="' + thumbnailImage + '"
-                        class="articleImage" alt="' + altThumbnailImage + '" /></a></div>
 
         <t4 type="content"
+            name="External Link"
+            output="selective-output"
+            modifiers="htmlentities"
+            format="<div class=&quot;newsArticleFeatureImage&quot;><a href=&quot;$value&quot; target=&quot;_blank&quot;><t4 type="content" name="Feature Image" output="selective-output" process-format="true" use-element="true" filename-element="External Link" format="<div class=&quot;newsArticleFeatureImage&quot;>$value</div>" formatter="image/*" /></a></div>" />
+
+            <!-- <div class="newsImage"><a href="' + externalLink + '" target="_blank"><img src="' + thumbnailImage + '"
+                        class="articleImage" alt="' + altThumbnailImage + '" /></a></div> -->
+
+        <!-- <t4 type="content"
             name="Feature Image"
             output="selective-output"
             process-format="true"
             use-element="true"
             filename-element="External Link"
             format="<div class=&quot;newsArticleFeatureImage&quot;>$value</div>"
-            formatter="image/*" />
+            formatter="image/*" /> -->
 
 
         <div class="articleText">
