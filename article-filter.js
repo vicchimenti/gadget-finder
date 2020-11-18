@@ -82,8 +82,6 @@ $(function () {
                     console.log("typeKey: " + typeKey);
                     // If Search Key is Not Null then Compare to the Type List Items in Each Content Item
                     if (typeKey) {
-                        // default to display all items
-                        // $('.newsItemWrapper').removeClass('hideByDropdownCategories');
                         // search tags in each item
                         $('ul.categories').filter(function (i, e) {
                             var typeValue = $(this).text();
