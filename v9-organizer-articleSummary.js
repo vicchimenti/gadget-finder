@@ -79,8 +79,9 @@ try {
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
 
-  document.write('<div class="summaryWrapper">');
   document.write('<figure class="programImageWrapper"><img src="' + programImageMedia + '" class="programImage" /></figure>');
+
+  document.write('<div class="articleSummary">');
   document.write('<div class="summary">' + articleSummary + '</div>')
 
   // if (author != "") {
@@ -117,7 +118,7 @@ try {
 
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, lastModified));
   // document.write('<div class="keywords" style="display:none;" aria-hidden="true">' + fieldKeywords + '</div>');
-  document.write('</div>'); // close summaryWrapper
+  document.write('</div>'); // close articleSummary
 
   document.write(endingHTML);
 
