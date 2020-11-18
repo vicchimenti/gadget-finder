@@ -54,7 +54,7 @@ try {
     for (let i = 0; i < arrayOfTags.length; i++) {
       listOfTags += '<li class="tag">' + arrayOfTags[i] + '</li>';
     }
-    listOfTags = '<div class="knowledgeBaseItem"><ul class="categories">' + listOfTags + '</ul></div>';
+    listOfTags = '<div class="knowledgeBaseItem tags"><ul class="categories">' + listOfTags + '</ul></div>';
   }
 
 
