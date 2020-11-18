@@ -71,41 +71,6 @@ $(function () {
 
 
 
-						
-
-            //   ***   Topic Filter   ***   //
-            // $(function () {
-            //     // Execute When the Multi-Select Checkbox Selector for Article Topics Changes
-            //     $('#SelectBox-ByType').change(function () {
-            //         let typeKeys = [];
-            //         typeKeys[0] = -1;
-            //         // assign an array of keys to hold the value from each check box selected
-            //         $('input[name=SelectBox-ByType]:checked').each(function (item) {
-            //             typeKeys[item] = $(this).val();
-            //         });
-            //         // If Key array has at least one valid value then Compare to Each Content Item
-            //         if (typeKeys[0] != -1) {
-            //             $('.topics').filter(function (i, e) {
-            //                 let typeValue = $(this).text();
-            //                 // set state to hidden for all items
-            //                 $(this).parents('.newsItemWrapper').addClass('hideByType');
-            //                 // Check to see if any Key is included in the current Value
-            //                 for (let index = 0; index < typeKeys.length; index++) {
-            //                     if (typeValue.includes(typeKeys[index])) {
-            //                         // make current item visible when any key is present in the value string
-            //                         $(this).parents('.newsItemWrapper').removeClass('hideByType');
-            //                     }
-            //                 }
-            //             });
-            //             // Or Else the Key array is Null so Reset all Content Items to Visible
-            //         } else {
-            //             $('.newsItemWrapper').removeClass('hideByType');
-            //         }
-            //         // parse out unselected content items and limit display to user selected items
-            //         parseItems.process();
-            //     });
-            // });
-
 
 
             //   ***   Category Filter   ***   //
@@ -145,3 +110,37 @@ $(function () {
     });
 });
 </script>
+
+
+            //   ***   Topic Filter   ***   //
+            // $(function () {
+            //     // Execute When the Multi-Select Checkbox Selector for Article Topics Changes
+            //     $('#SelectBox-ByType').change(function () {
+            //         let typeKeys = [];
+            //         typeKeys[0] = -1;
+            //         // assign an array of keys to hold the value from each check box selected
+            //         $('input[name=SelectBox-ByType]:checked').each(function (item) {
+            //             typeKeys[item] = $(this).val();
+            //         });
+            //         // If Key array has at least one valid value then Compare to Each Content Item
+            //         if (typeKeys[0] != -1) {
+            //             $('.topics').filter(function (i, e) {
+            //                 let typeValue = $(this).text();
+            //                 // set state to hidden for all items
+            //                 $(this).parents('.newsItemWrapper').addClass('hideByType');
+            //                 // Check to see if any Key is included in the current Value
+            //                 for (let index = 0; index < typeKeys.length; index++) {
+            //                     if (typeValue.includes(typeKeys[index])) {
+            //                         // make current item visible when any key is present in the value string
+            //                         $(this).parents('.newsItemWrapper').removeClass('hideByType');
+            //                     }
+            //                 }
+            //             });
+            //             // Or Else the Key array is Null so Reset all Content Items to Visible
+            //         } else {
+            //             $('.newsItemWrapper').removeClass('hideByType');
+            //         }
+            //         // parse out unselected content items and limit display to user selected items
+            //         parseItems.process();
+            //     });
+            // });
