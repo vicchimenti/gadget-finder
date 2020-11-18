@@ -30,7 +30,7 @@ try {
   var lastModified = '<div class="lastModified" style="display:inline-block"><p>Last modified: <t4 type="meta" meta="last_modified" format="MMMM d, yyyy" /></p></div>'; 
 //   var titleLink = "<h2>" + articleTitle + "</h2>";
   var listOfTags = "";
-//   var thumbNailString = "";
+  var featureImageString = "";
 
 
   <t4 type="meta" meta="html_anchor" />
@@ -46,8 +46,8 @@ try {
 
 
   /* -- Prepare all the things -- */
-  var beginningHTML = '<div class="newsArticleWrapper contentItem" id="id<t4 type=\'meta\' meta=\'content_id\' data-position-default="ZoneA" data-position-selected="ZoneA"/>">';
-  var endingHTML = '</div>';
+  var beginningHTML = '<div class="newsArticleWrapper contentItem" id="id<t4 type=\'meta\' meta=\'content_id\' data-position-default="ZoneA" data-position-selected="ZoneA"/>"><article class="newsArticle">';
+  var endingHTML = '</article></div>';
 
 
   /* parse the list of tags, add <li> tags*/
@@ -69,31 +69,40 @@ try {
 
 
   /* determine which link, if any, goes on the image */
-//   if (externalLink == "") {
-//       thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
-//   } else {
-//       thumbNailString = '<div class="newsImage"><a href="' + externalLink + '" target="_blank"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></a></div>';
-//   }
+  if (externalLink == "") {
+      featureImageString = '<div class="newsArticleFeatureImage"><img src="' + featureImage + '" class="articleImage" alt="' + altFeatureImage + '" /></div>';
+  } else {
+      featureImageString = '<div class="newsArticleFeatureImage"><a href="' + externalLink + '" target="_blank"><img src="' + featureImage + '" class="articleImage" alt="' + altFeatureImage + '" /></a></div>';
+  }
   
 
 
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, anchorTag));
+
+
 //   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, titleLink));
-//   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, thumbNailString));
+//   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, featureImageString));
 
 
 //   document.write('<div class="articleSummary">');
 //   document.write('<div class="summary"><p>' + articleSummary + '</p></div>')
 
+//   document.write('<article class="newsArticle">');
 
-  document.write('<div class="newsArticleHeader"><h2 id="pageTitle">' + articleTitle + '</h2></div>'); 
 
-  document.write('<div class="articleText">' + articleFullBody + '</div>'); 
+  document.write('<div class="newsArticleHeader"><h2 id="pageTitle">' + articleTitle + '</h2></div>');
+  document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, featureImageString));
+
+  document.write('<div class="articleText standardContent">' + articleFullBody + '</div>'); 
   document.write(listOfTags);
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, lastModified));
-  document.write('</div>'); // close articleSummary
+
+
+//   document.write('</div>'); // close articleSummary
+
+
   document.write(endingHTML);
 
 
