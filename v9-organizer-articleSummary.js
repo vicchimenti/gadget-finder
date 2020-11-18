@@ -57,14 +57,6 @@ try {
     listOfTags = '<div class="knowledgeBaseItem"><ul>' + listOfTags + '</ul></div>';
   }
 
-    /* parse the list of categories, add <li> tags*/
-  // if (articleTypes != "") {
-  //   var arrayOfTypes = articleTypes.split(',');
-  //   for (let i = 0; i < arrayOfTypes.length; i++) {
-  //     listOfTypes += '<li class="articleType">' + arrayOfTypes[i] + '</li>';
-  //   }
-  //   listOfTypes = '<ul>' + listOfTypes + '</ul>';
-  // }
 
   /* determine which link, if any, goes in the title */
   if (articleFullBody == "") {
@@ -72,27 +64,14 @@ try {
   } else {
       titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
   }
-  
-  // else if (externalLink == "") {
-  //     titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
-  // } 
-
-      // titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
 
 
-
-        /* determine which link, if any, goes on the image */
+  /* determine which link, if any, goes on the image */
   if (externalLink == "") {
       thumbNailString = '<div class="newsImage"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></div>';
   } else {
       thumbNailString = '<div class="newsImage"><a href="' + externalLink + '" target="_blank"><img src="' + thumbnailImage + '" class="articleImage" alt="' + altThumbnailImage + '" /></a></div>';
   }
-
-{/* <p><a href="https://www.w3schools.com">
-<img src="w3html.gif" alt="W3Schools.com" width="100" height="132">
-</a></p>  */}
-
-{/* <t4 type='content' name='External Link' output='linkurl' modifiers='striptags,htmlentities' display_field='value' /> */}
   
 
 
