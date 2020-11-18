@@ -66,11 +66,20 @@
 
     <article class="newsArticle standardContent">
 
+        <!-- <t4 type="content"
+            name="Feature Image"
+            output="selective-output"
+            process-format="true"
+            format="<div class=&quot;newsArticleFeatureImage&quot;>$value</div>" formatter="image/*" /> -->
+
         <t4 type="content"
             name="Feature Image"
             output="selective-output"
             process-format="true"
-            format="<div class=&quot;newsArticleFeatureImage&quot;>$value</div>" formatter="image/*" />
+            use-element="true"
+            filename-element="External Link"
+            format="<div class=&quot;newsArticleFeatureImage&quot;>$value</div>"
+            formatter="image/*" />
 
 
         <div class="articleText">
