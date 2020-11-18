@@ -63,9 +63,9 @@ try {
 
   /* determine which link, if any, goes in the title */
   if (articleFullBody == "") {
-    titleLink = "<h4>" + articleTitle + "</h4>";
+    titleLink = "<h3>" + articleTitle + "</h3>";
   } else {
-    titleLink = '<h4><a href="' + fullTextLink + '">' + articleTitle + '</a></h4>';
+    titleLink = '<h3><a href="' + fullTextLink + '">' + articleTitle + '</a></h3>';
   }
 
   // else if (fieldSectionLink == "") {
