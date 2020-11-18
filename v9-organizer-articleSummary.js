@@ -2,20 +2,20 @@
 *     @author Victor Chimenti, MSCS-SE '20
 *     @file v9-organizer-articleSummary.js
 *
-*     This new content type is being adapted from the knowledge base
-*     content type used by IT Services and is intended to provide a
-*     searchable, sortable group of articles that can be exported to and used
-*     by any department.
+*     This new content type is a hybrid being adapted from the knowledge base
+*     content type used by IT Services and the News type available to all departments.
+*     It is intended to provide a searchable, sortable group of articles that can be
+*     exported to and used by any department when they need a summary and image to
+*     align responsively in an organizer layout.
 *
-*     This specific project is intended for the CDLI Gadget Finder,
-*     although this content type should easily be exportable to other teams.
+*     This specific project is intended for the CDLI Gadget Finder.
 *
 *     This content type will work in conjunction with the Organizer and each item
 *     will contain one searchable, article.
 *
 *     Document will write once when the page loads
 *
-*     @version 4.1
+*     @version 4.3
 */
 
 try {
