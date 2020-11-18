@@ -85,7 +85,7 @@ $(function () {
                         // default to display all items
                         // $('.newsItemWrapper').removeClass('hideByDropdownCategories');
                         // search tags in each item
-                        $('li.tag').filter(function (i, e) {
+                        $('ul.categories').filter(function (i, e) {
                             var typeValue = $(this).text();
                             console.log("typeValue: " + typeValue);
 
