@@ -2,5 +2,7 @@
 
 ## Todo
 
-- [] Initialize Content Type
-- [] Migrate to Programable Layout
+- [x] Initialize Content Type
+- [x] Migrate to Programable Layout
+- [] Update Styling to new specs
+- [] Add selective output custom button array
