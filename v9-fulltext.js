@@ -1,4 +1,4 @@
-  /***
+/***
 *     @author Victor Chimenti, MSCS-SE '20
 *     @file v9-fulltext.js
 *
