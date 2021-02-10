@@ -3,11 +3,7 @@
 *     @file custom-head-code.js
 *
 *     This document will format the tags necessary to pull metadata from the
-*     source and insert it into the head of a page layout.
-*
-*     The doc will need to be customized to any content type that uses 
-*     the custom head code layout. It is to be used in conjunction with a
-*     nav object which is coded into the page head.
+*     content item fields and insert it into the head of a page layout.
 *
 *     Document will write once when the page loads
 *
