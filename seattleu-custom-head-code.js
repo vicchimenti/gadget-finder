@@ -7,7 +7,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 1.1
+*     @version 1.2
 */
 
 
@@ -28,12 +28,7 @@ try {
     var metaImageOG = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<meta name='og:image' content='<t4 type=\'content\' name=\'Thumbnail image\' output=\'normal\' formatter=\'path/*\' />' />");
     var metaImageAltOG = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<meta name='og:image:alt' content='<t4 type=\'content\' name=\'Alt Image\' output=\'normal\' modifiers=\'striptags,htmlentities\' />' />");
     // var fieldTags = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<t4 type='content' name='Categories' output='normal' display_field='value' />");
-    var metaArticleTagsOG = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<meta name='og:image:alt' content='<t4 type=\'content\' name=\'Categories\' output=\'normal\' display_field=\'value\' />' />");
-
-
-
-
-    article:tag
+    var metaArticleTagsOG = com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, "<meta name='article:tag' content='<t4 type=\'content\' name=\'Categories\' output=\'normal\' display_field=\'value\' />' />");
 
 
 
@@ -46,6 +41,8 @@ try {
     document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, metaDescriptionOG));
     document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, metaImageOG));
     document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, metaImageAltOG));
+    document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, metaArticleTagsOG));
+
 
 
 
