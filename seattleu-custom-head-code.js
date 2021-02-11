@@ -1,13 +1,13 @@
 /***
 *     @author Victor Chimenti, MSCS-SE '20
-*     @file custom-head-code.js
+*     @file full-text-custom-head-code.js
 *
 *     This document will format the tags necessary to pull metadata from the
 *     content item fields and insert it into the head of a page layout.
 *
 *     Document will write once when the page loads
 *
-*     @version 1.4
+*     @version 1.5
 */
 
 
