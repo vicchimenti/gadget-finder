@@ -1,0 +1,12 @@
+
+h2.articleTitle {
+    color: #aa0000;
+    font-family: "Roboto Slab", serif;
+    font-size: 4.8rem;
+    /* hyphens: auto; */
+    line-height: 100%;
+    margin: 0 30px;
+    overflow-wrap: break-word;
+    padding: 30px 15px 30px 0;
+    word-wrap: break-word;
+}
