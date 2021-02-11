@@ -6,6 +6,7 @@
 - [x] Migrate to Programable Layout
 - [] Update Styling to new specs
 - [] Add selective output custom button array
+- [] add titles to anchors
 
 
 ### Meta Testing 20210210
