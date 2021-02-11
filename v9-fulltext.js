@@ -14,7 +14,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 1.9
+*     @version 2.1
 */
 
 try {
@@ -58,7 +58,7 @@ try {
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, anchorTag));
-  document.write('<div class="newsArticleHeader"><h2 id="pageTitle">' + articleTitle + '</h2></div>');
+  document.write('<div class="newsArticleHeader"><h2 class="articleTitle">' + articleTitle + '</h2></div>');
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, featureImageString));
   document.write('<div class="articleText standardContent">' + articleFullBody + '</div>'); 
   document.write(listOfTags);
