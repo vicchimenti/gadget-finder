@@ -58,7 +58,7 @@ try {
   /* -- Write all the things -- */
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, beginningHTML));
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, anchorTag));
-  document.write('<div class="newsArticleHeader"><h2 class="articleTitle">' + articleTitle + '</h2></div>');
+  document.write('<div class="newsArticleHeader standardContent"><h1 class="articleTitle" id="pageTitle">' + articleTitle + '</h1></div>');
   document.write(com.terminalfour.publish.utils.BrokerUtils.processT4Tags(dbStatement, publishCache, section, content, language, isPreview, featureImageString));
   document.write('<div class="articleText standardContent">' + articleFullBody + '</div>'); 
   document.write(listOfTags);
