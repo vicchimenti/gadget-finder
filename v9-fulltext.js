@@ -1,5 +1,5 @@
 /***
-*     @author Victor Chimenti, MSCS-SE '20
+*     @author Victor Chimenti, MSCS
 *     @file v9-fulltext.js
 *
 *     This new content type is a hybrid being adapted from the knowledge base
@@ -14,7 +14,7 @@
 *
 *     Document will write once when the page loads
 *
-*     @version 2.1
+*     @version 2.1.1
 */
 
 try {
